@@ -6,7 +6,7 @@ ADD src application/src
 WORKDIR application
 RUN gradle clean build
 FROM frolvlad/alpine-oraclejre8:slim
-COPY --from=builder /home/gradle/application/build/libs/ratingservice-latest-all.jar /app/
+COPY --from=builder /home/gradle/application/build/libs/service-latest-all.jar /app/
 #COPY --from=builder /home/gradle/application/startup.sh /app/
 WORKDIR /app
-ENTRYPOINT ["java", "-jar", "ratingservice-latest-all.jar"]
+ENTRYPOINT ["java", "-jar", "service-latest-all.jar"]

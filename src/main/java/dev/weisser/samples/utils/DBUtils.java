@@ -53,7 +53,7 @@ public class DBUtils {
 	/**
 	 * insert the obj to the database
 	 * 
-	 * @param rating
+	 * @param SambleDBObj
 	 * @throws SQLException
 	 */
 	public void insertSomething(SampleDBObj obj) throws SQLException {

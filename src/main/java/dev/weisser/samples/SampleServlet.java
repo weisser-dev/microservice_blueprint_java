@@ -100,7 +100,7 @@ public class SampleServlet {
 				sb.append("\r\n");
 				sb.append(obj.toCSVLine());
 			}
-			return Response.ok(sb.toString()).header("Content-Disposition", "attachment; filename=" + new Date().toString() + "-export-ratings.csv").build();
+			return Response.ok(sb.toString()).header("Content-Disposition", "attachment; filename=" + new Date().toString() + "-export-objs.csv").build();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
