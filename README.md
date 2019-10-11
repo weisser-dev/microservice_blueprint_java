@@ -1,2 +1,12 @@
-# microservice_blueprint_java
-This blueprint will shows you how to easily create a MicroService with Java. Our Microservice write and read data from MySQL. Its build without Spring or something else, just plain java and an embedded jetty.
+
+Erstellt ein Objekt:
+http://localhost:3001/api/v1/service/insert?name=Article&description=this+could+use+for+an+article+maybe&text=lorem+ipsum
+
+Gibt alle Objekte als JSON aus:
+http://localhost:3001/api/v1/service/getAll
+
+Gibt ein Spezifisches Objekt aus:
+http://localhost:3001/api/v1/service/getByName?name=Article
+
+Exportiert unsere Daten als CSV:
+http://localhost:3001/api/v1/service/export
