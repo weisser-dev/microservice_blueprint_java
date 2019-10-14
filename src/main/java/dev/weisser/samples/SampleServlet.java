@@ -40,7 +40,7 @@ public class SampleServlet {
 		if(StringUtil.isNotBlank(name) && StringUtil.isNotBlank(text) && StringUtil.isNotBlank(description)) {
 			SampleDBObj someObj = new SampleDBObj(name, text, description);
 			try {
-				databaseUils.insertSomething(someObj);
+				databaseUils.insert(someObj);
 				return Response.ok("Obj successfully created").build();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -60,7 +60,7 @@ public class SampleServlet {
 	public String getByName(@QueryParam("name") String name) {
 		if(StringUtils.isNotBlank(name)) {
 		try {
-			return new Gson().toJson(databaseUils.list(name));
+			return new Gson().toJson(databaseUils.getByName(name));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return "An error occurred while calling the service, please try again. \r\n" + e.getMessage();
@@ -76,7 +76,7 @@ public class SampleServlet {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String get() {
 		try {
-			return new Gson().toJson(databaseUils.listEvrything());
+			return new Gson().toJson(databaseUils.getAll());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return "An error occurred while calling the service, please try again. \r\n" + e.getMessage();
@@ -93,7 +93,7 @@ public class SampleServlet {
 				sb.append(field.getName()).append(",");
 			}
 			// load everything from database
-			List<SampleDBObj> objects = databaseUils.listEvrything();
+			List<SampleDBObj> objects = databaseUils.getAll();
 			//header
 			sb.deleteCharAt(sb.length()-1);
 			for (SampleDBObj obj : objects) {
