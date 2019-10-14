@@ -56,7 +56,7 @@ public class DBUtils {
 	 * @param SambleDBObj
 	 * @throws SQLException
 	 */
-	public void insertSomething(SampleDBObj obj) throws SQLException {
+	public void insert(SampleDBObj obj) throws SQLException {
 		preparedStatement.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
 		preparedStatement.setString(2, obj.getUid());
 		preparedStatement.setString(3, obj.getName());
@@ -70,7 +70,7 @@ public class DBUtils {
 	 * @return List<SampleDBObj> - return all entrys
 	 * @throws SQLException
 	 */
-	public List<SampleDBObj> listEvrything() throws SQLException {
+	public List<SampleDBObj> getAll() throws SQLException {
 		Statement statement = connection.createStatement();
 		ResultSet rs = statement.executeQuery("SELECT * FROM someTable");
 		List <SampleDBObj> objs = new ArrayList<SampleDBObj>();
@@ -86,7 +86,7 @@ public class DBUtils {
 	 * @return SampleDBObj - return specific entry by name
 	 * @throws SQLException
 	 */
-	public SampleDBObj list(String name) throws SQLException {
+	public SampleDBObj getByName(String name) throws SQLException {
 		PreparedStatement statement = connection.prepareStatement("SELECT * FROM someTable WHERE name = ?");
 		statement.setString(1, name);
 		ResultSet rs = statement.executeQuery();
