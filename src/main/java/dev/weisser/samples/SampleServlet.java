@@ -12,11 +12,11 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.google.gson.Gson;
+
 import org.eclipse.jetty.util.StringUtil;
-import org.testcontainers.shaded.org.apache.commons.lang.StringUtils;
 
 import dev.weisser.samples.utils.DBUtils;
-import com.google.gson.Gson;
 
 
 @Path("/")
@@ -58,7 +58,7 @@ public class SampleServlet {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getByName(@QueryParam("name") String name) {
-		if(StringUtils.isNotBlank(name)) {
+		if(StringUtil.isNotBlank(name)) {
 		try {
 			return new Gson().toJson(databaseUils.getByName(name));
 		} catch (SQLException e) {

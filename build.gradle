@@ -7,13 +7,8 @@
  */
  
 group = 'dev.weisser.samples'
-// property must not be called version
-version = project.hasProperty('versionNumber') ? project.property('versionNumber') : ('0.1.0.' + new Date().format('yyyyMMddHHmmssSSS'))
- 
+
 buildscript {
-	ext {
-		gradleDockerVersion   = '1.2'
-	}
 	repositories {
 		mavenCentral()
 		 maven {
@@ -21,7 +16,6 @@ buildscript {
     	}
 	}
 	dependencies {
-		classpath("se.transmode.gradle:gradle-docker:${gradleDockerVersion}")
 		classpath("com.github.jengelman.gradle.plugins:shadow:4.0.2")
 	}
 }
@@ -30,17 +24,12 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'eclipse'
-apply plugin: 'docker'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 compileJava {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
     mainClassName       = 'dev.weisser.samples.Service'
-}
-
-docker {
-    baseImage 'frolvlad/alpine-oraclejdk8:slim'
 }
 
 // In this section you declare where to find the dependencies of your project
@@ -73,6 +62,10 @@ dependencies {
     
     // Java API for RESTful Web Services
     compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+
     
     // Glassfish
     compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet-core', version: '2.27'
