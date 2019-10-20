@@ -486,3 +486,6 @@ We now have a running versioned microservice that queries a database and sends t
 ***Info**/ **best practice**: Why should I always check the database for each request? Just create a **cache**. When the server starts or adds data to the database, it is filled with data. Advantage: significantly less load on the system and your database*
 
 #### Project: [GitHub: microservice_blueprint_java](https://github.com/whit-e/microservice_blueprint_java)
+
+
+If you are interested in how to run this service as a container, check this tutorial: https://whit-e.com/articles/dockerizing-our-service
