@@ -28,7 +28,6 @@ public class Service {
 			server.start();
 			return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;

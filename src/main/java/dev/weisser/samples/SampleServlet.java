@@ -43,7 +43,6 @@ public class SampleServlet {
 				databaseUils.insert(someObj);
 				return Response.ok("Obj successfully created").build();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return Response.status(404, "An error occurred while calling the service, please try again. \r\n" + e.getMessage()).build();
 			}

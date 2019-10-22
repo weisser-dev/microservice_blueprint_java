@@ -35,15 +35,11 @@ public class DBUtils {
 			// must be created once initially with the query and is then only filled with data; this improves performance.
 			preparedStatement = connection.prepareStatement(query);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// TODO Auto-generated constructor stub
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
